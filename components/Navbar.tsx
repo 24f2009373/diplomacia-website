@@ -16,10 +16,11 @@ export default function Navbar() {
     }, []);
 
     return (
+        // can we have a little more left margin on the icon
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-md py-4 shadow-xl" : "bg-transparent py-8"}`}>
             <div className="max-w-[1400px] mx-auto px-8 md:px-16 flex items-center justify-between relative">
                 <Link href="/" className="flex items-center gap-6 group">
-                    <div className="absolute -top-6 -left-4 md:-left-8 w-32 md:w-40 transition-transform duration-500 group-hover:scale-105">
+                    <div className="absolute -top-6 -left-1 md:-left-8 w-32 md:w-40 transition-transform duration-500 group-hover:scale-105">
                         <Image
                             src="/assets/diplomacialogo.png"
                             alt="Diplomacia Logo"
@@ -36,7 +37,7 @@ export default function Navbar() {
 
                 <div className="hidden md:flex items-center gap-12 text-sm uppercase tracking-[0.2em] font-light">
                     {["Featured Events", "2025", "Team", "FAQ"].map((item) => (
-                        <Link key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="hover:text-accent transition-colors duration-300">
+                        <Link key={item} href={item === "2025" ? "/2025" : `#${item.toLowerCase().replace(" ", "-")}`} className="hover:text-accent transition-colors duration-300">
                             {item}
                         </Link>
                     ))}
