@@ -1,65 +1,72 @@
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+
+      {/* About Section */}
+      <section id="our-vision" className="py-32 px-8 md:px-16 lux-gradient overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+          <div className="flex-1 space-y-8">
+            <h2 className="text-4xl md:text-6xl font-serif italic text-accent">Defining the Standard</h2>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-foreground/80 max-w-xl italic">
+              "In the theater of global affairs, diplomacy is the art of letting someone else have your way. At Diplomacia, we don't just debate; we architect the future."
+            </p>
+            <div className="h-[1px] w-32 bg-accent/30" />
+            <p className="text-sm uppercase tracking-[0.3em] font-light text-foreground/60">
+              Elegance in Discourse • Depth in Analysis • Subtlety in Strategy
+            </p>
+          </div>
+          <div className="flex-1 relative aspect-[4/5] w-full max-w-md">
+            <div className="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4" />
+            <div className="absolute inset-0 bg-midnight/80 flex items-center justify-center p-8 text-center">
+              <span className="text-8xl font-serif italic opacity-10 select-none">D</span>
+              <p className="text-sm uppercase tracking-widest font-light">The Society of Sovereign Thought</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Events/Initiatives Section */}
+      <section id="initiatives" className="py-32 px-8 md:px-16 bg-background">
+        <div className="max-w-7xl mx-auto text-center mb-24">
+          <h2 className="text-2xl uppercase tracking-[0.5em] text-accent mb-4">Current Initiatives</h2>
+          <div className="w-12 h-[1px] bg-accent/50 mx-auto" />
         </div>
-      </main>
-    </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+          {[
+            { title: "Grand Assembly", desc: "A convergence of intellect and strategy." },
+            { title: "Sovereign Briefs", desc: "High-level geopolitical analysis." },
+            { title: "Executive Circle", desc: "Mentorship for the next generation of leaders." }
+          ].map((item, idx) => (
+            <div key={idx} className="group cursor-pointer">
+              <div className="mb-6 relative overflow-hidden aspect-square flex items-center justify-center bg-midnight/40 border border-white/5 group-hover:border-accent/40 transition-colors duration-500">
+                <span className="text-6xl font-serif italic opacity-5 group-hover:opacity-20 transition-opacity duration-500">{item.title[0]}</span>
+              </div>
+              <h3 className="text-xl font-serif mb-2 group-hover:text-accent transition-colors">{item.title}</h3>
+              <p className="text-sm font-light text-foreground/60 leading-loose uppercase tracking-widest">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-20 border-t border-white/5 text-center">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-3xl font-serif gold-text mb-8">Diplomacia</h2>
+          <p className="text-xs uppercase tracking-[0.4em] opacity-40 mb-12">The World on Trial • Since 2024</p>
+          <div className="flex justify-center gap-8 text-xs uppercase tracking-widest opacity-60">
+            <a href="#" className="hover:text-accent">LinkedIn</a>
+            <a href="#" className="hover:text-accent">Instagram</a>
+            <a href="#" className="hover:text-accent">Twitter</a>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
+
