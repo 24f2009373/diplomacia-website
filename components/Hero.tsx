@@ -76,6 +76,10 @@ export default function Hero() {
                     The World on Trial
                 </p>
 
+                <p className="mt-6 text-sm md:text-base font-light tracking-[0.3em] uppercase opacity-60 animate-fade-in-up delay-500 italic max-w-2xl mx-auto">
+                    Shaping Perspectives. Influencing Policy. Defining the Future.
+                </p>
+
                 {/* add another button here and make them side by side
                 the next button should say about us */}
 
@@ -96,10 +100,10 @@ export default function Hero() {
                     </div>
 
                     <div className="mt-20">
-                        <button className="px-8 py-4 border border-accent/30 hover:bg-accent hover:border-accent transition-all duration-500 flex items-center gap-4 mx-auto group">
+                        <a href="/about" className="px-8 py-4 border border-accent/30 hover:bg-accent hover:border-accent transition-all duration-500 flex items-center gap-4 mx-auto group">
                             <span className="text-xs uppercase tracking-[0.3em] text-accent group-hover:text-black group-hover:font-bold transition-all duration-500">About Us</span>
                             <div className="w-8 h-[1px] bg-accent group-hover:bg-black group-hover:w-12 transition-all duration-500" />
-                        </button>
+                        </a>
                     </div>
                 </div>
 
