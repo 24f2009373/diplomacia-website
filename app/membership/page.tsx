@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function MembershipPage() {
     return (
@@ -49,26 +50,7 @@ export default function MembershipPage() {
                 </span>
             </section>
 
-            {/* Footer (Replicated from main page for consistency) */}
-            <footer className="py-24 border-t border-white/5 bg-midnight/10 relative overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-                <div className="max-w-7xl mx-auto px-8 text-center flex flex-col items-center">
-                    <Link href="/" className="mb-12 group inline-block">
-                        <h2 className="text-4xl font-serif gold-text transition-transform duration-700 group-hover:scale-105">Diplomacia</h2>
-                        <p className="text-[10px] uppercase tracking-[0.8em] opacity-40 mt-4">The World on Trial</p>
-                    </Link>
-
-                    <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-[10px] uppercase tracking-[0.4em] opacity-30 mb-16">
-                        <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
-                        <a href="#" className="hover:text-accent transition-colors">Instagram</a>
-                        <a href="#" className="hover:text-accent transition-colors">Twitter</a>
-                    </div>
-
-                    <p className="text-[8px] uppercase tracking-widest opacity-20 font-light italic">
-                        &copy; MMXXIV Diplomacia Society • All Sovereign Rights Reserved
-                    </p>
-                </div>
-            </footer>
+            <Footer />
         </main>
     );
 }
