@@ -29,7 +29,7 @@ export default function Navbar() {
             <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || isOpen ? "bg-background/80 backdrop-blur-md py-4 shadow-xl" : "bg-transparent py-8"}`}>
                 <div className="max-w-[1400px] mx-auto px-8 md:px-16 flex items-center justify-between relative">
                     <Link href="/" className="flex items-center gap-6 group" onClick={() => setIsOpen(false)}>
-                        <div className="absolute -top-6 -left-1 md:-left-8 w-32 md:w-40 transition-transform duration-500 group-hover:scale-105">
+                        <div className="absolute -top-6 left-4 md:left-0 w-32 md:w-40 transition-transform duration-500 group-hover:scale-105">
                             <Image
                                 src="/assets/diplomacialogo.png"
                                 alt="Diplomacia Logo"
@@ -39,7 +39,7 @@ export default function Navbar() {
                                 priority
                             />
                         </div>
-                        <span className="text-2xl font-serif tracking-widest gold-text uppercase hidden sm:block ml-32 md:ml-40">
+                        <span className="text-2xl font-serif tracking-widest gold-text uppercase hidden sm:block ml-36 md:ml-48">
                             Diplomacia
                         </span>
                     </Link>

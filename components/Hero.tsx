@@ -23,7 +23,7 @@ export default function Hero() {
     // }, []);
 
     return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen w-full flex items-center justify-center pt-48 pb-12 overflow-hidden">
             {/* Background Image with Overlay */}
             <div
                 className="absolute inset-0 z-0 transition-transform duration-700 ease-out"
