@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -5,6 +8,8 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 
 export default function Home() {
+  const [selectedLogo, setSelectedLogo] = useState<{ file: string; name: string } | null>(null);
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -51,13 +56,14 @@ export default function Home() {
               ].map((item, i) => (
                 <div
                   key={item.file}
-                  className="absolute animate-fade-in-up transition-transform duration-1000 group/logo"
+                  className="absolute animate-fade-in-up transition-transform duration-1000 group/logo cursor-pointer z-20"
                   style={{
                     top: `${50 + 40 * Math.sin((i * 2 * Math.PI) / 11)}%`,
                     left: `${45 + 40 * Math.cos((i * 2 * Math.PI) / 11)}%`,
                     transform: 'translate(-50%, -50%)',
                     animationDelay: `${i * 100}ms`
                   }}
+                  onClick={() => setSelectedLogo(item)}
                 >
                   <div className="relative group/tooltip">
                     <div className="relative w-8 h-8 md:w-12 md:h-12 rounded-full overflow-hidden border border-white/20 bg-midnight/50 backdrop-blur-sm opacity-80 group-hover/logo:opacity-100 transition-all duration-700 shadow-lg group-hover/logo:scale-110">
@@ -77,14 +83,14 @@ export default function Home() {
                 </div>
               ))}
 
-              <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/5 blur-[100px] rounded-full" />
-              <span className="text-[12rem] font-serif italic opacity-5 select-none absolute -bottom-10 -right-10">D</span>
-              <p className="text-xs uppercase tracking-[0.6em] font-light mb-8 opacity-40">Est. 2024</p>
-              <h4 className="text-2xl font-serif mb-4">Collaborators</h4>
+              <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/5 blur-[100px] rounded-full pointer-events-none z-0" />
+              <span className="text-[12rem] font-serif italic opacity-5 select-none absolute -bottom-10 -right-10 pointer-events-none z-0">D</span>
+              <p className="text-xs uppercase tracking-[0.6em] font-light mb-8 opacity-40 relative z-10">Est. 2023</p>
+              <h4 className="text-2xl font-serif mb-4 relative z-10">Collaborators</h4>
               {/* <p className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 mb-8 max-w-[200px] leading-relaxed">
                 Strategic alliances with premier academic and diplomatic institutions.
               </p> */}
-              <p className="text-[10px] uppercase tracking-[0.3em] font-light text-accent italic">Alliances with fellow societies</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] font-light text-accent italic relative z-10">Alliances with fellow societies</p>
             </div>
           </div>
         </div>
@@ -146,6 +152,51 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      {/* Collaborator Logo Modal */}
+      {selectedLogo && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 backdrop-blur-xl transition-all duration-500 animate-fade-in"
+          onClick={() => setSelectedLogo(null)}
+        >
+          <div
+            className="relative w-full max-w-md aspect-square p-8 animate-zoom-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedLogo(null)}
+              className="absolute top-4 right-4 z-10 p-3 border border-white/20 bg-background/50 backdrop-blur-sm hover:border-accent/40 transition-all group"
+              aria-label="Close"
+            >
+              <div className="relative w-6 h-6">
+                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/50 group-hover:bg-accent rotate-45 transition-colors" />
+                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/50 group-hover:bg-accent -rotate-45 transition-colors" />
+              </div>
+            </button>
+
+            {/* Logo Display */}
+            <div className="relative w-full h-full border border-accent/20 bg-midnight/80 backdrop-blur-sm overflow-hidden">
+              <Image
+                src={`/assets/collaborators/${selectedLogo.file}`}
+                alt={selectedLogo.name}
+                fill
+                className="object-contain p-8"
+              />
+
+              {/* Decorative Border */}
+              <div className="absolute -inset-4 border border-accent/20 translate-x-4 translate-y-4 -z-10" />
+            </div>
+
+            {/* Logo Name */}
+            <div className="mt-6 text-center">
+              <p className="text-sm uppercase tracking-[0.4em] text-accent font-light">
+                {selectedLogo.name}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
