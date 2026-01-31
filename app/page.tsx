@@ -90,6 +90,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Pillars Section */}
       <section id="initiatives" className="py-40 px-8 md:px-16 relative overflow-hidden">
         {/* Background Image with Overlay */}

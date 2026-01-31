@@ -17,7 +17,7 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "Featured Events", href: "/#featured-events" },
+        { name: "Featured Events", href: "/events" },
         { name: "2025", href: "/2025" },
         { name: "Membership", href: "/membership" },
         { name: "Team", href: "/#team" },

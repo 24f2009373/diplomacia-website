@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -95,7 +95,7 @@ const slides = [
         events: ["Republic Day Open Mic", "Gantantra Ek Shaam"],
         posters: [
             "/assets/2025_eventposters/bandipur_iitm-29-01-2026-0001.webp",
-            "/assets/2025_eventposters/iitm_diplomacia-29-01-2026-0003.webp"
+            // "/assets/2025_eventposters/iitm_diplomacia-29-01-2026-0003.webp"
         ],
         gradient: "from-indigo-900/30 via-black to-black",
     },
@@ -211,6 +211,14 @@ export default function SpotifyRecap() {
     const router = useRouter();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [progress, setProgress] = useState(0);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    // Reset scroll position on slide change
+    useEffect(() => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTop = 0;
+        }
+    }, [currentSlide]);
 
     const nextSlide = useCallback(() => {
         setCurrentSlide(s => {
@@ -257,7 +265,7 @@ export default function SpotifyRecap() {
     const slide = slides[currentSlide] || slides[slides.length - 1] || slides[0];
 
     return (
-        <main className={`fixed inset-0 h-[100dvh] overflow-hidden bg-black text-white font-sans transition-colors duration-1000 bg-gradient-to-br touch-none ${slide.gradient}`}>
+        <main className={`fixed inset-0 h-[100dvh] overflow-hidden bg-black text-white font-sans transition-colors duration-1000 bg-gradient-to-br ${slide.gradient}`}>
 
 
             {/* Story Progress Bars */}
@@ -273,7 +281,10 @@ export default function SpotifyRecap() {
             </div>
 
             {/* Slide Content */}
-            <div className="h-full w-full flex flex-col items-center justify-start px-6 md:px-12 relative pt-24 md:pt-32">
+            <div
+                ref={scrollContainerRef}
+                className="h-full w-full flex flex-col items-center justify-start px-6 md:px-12 relative pt-24 md:pt-32 overflow-y-auto no-scrollbar"
+            >
                 {/* Interaction Zones - Now at top to catch all clicks */}
                 <div className="absolute inset-0 z-50 flex pointer-events-auto">
                     <div className="w-1/3 h-full cursor-w-resize" onClick={prevSlide} />
