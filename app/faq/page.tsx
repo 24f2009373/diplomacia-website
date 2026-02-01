@@ -56,7 +56,7 @@ export default function FAQPage() {
             question: "How to join as a Diplomacia delegate?",
             answer: (
                 <a
-                    href="YOUR_DELEGATE_GFORM_LINK_HERE"
+                    href="https://forms.gle/sH7bM3mL6FiWpjUZ6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-accent hover:underline"
