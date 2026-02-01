@@ -33,7 +33,7 @@ export default function FAQPage() {
                         To apply for membership, fill out our membership form:
                     </p>
                     <a
-                        href="YOUR_GFORM_LINK_HERE"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfqMPSXA2tEv3SdxEqTY-28Gz4IDu3J-FMeU00byfEDmBL-OQ/viewform?usp=dialog"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-accent hover:underline font-medium"
