@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,11 +9,39 @@ import { team } from "@/data/team";
 
 export default function TeamPage() {
     const [activeRole, setActiveRole] = useState<string>("Founder");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const carouselRef = useRef<HTMLDivElement>(null);
 
     const founders = team.filter(member => member.role === "Founder");
     const secretary = team.filter(member => member.role === "Secretary");
 
     const roleMembers = activeRole === "Founder" ? founders : secretary;
+
+    // Track scroll position for indicators
+    useEffect(() => {
+        const handleScroll = () => {
+            if (carouselRef.current) {
+                const scrollLeft = carouselRef.current.scrollLeft;
+                const cardWidth = 280; // Card width + gap on mobile
+                const index = Math.round(scrollLeft / cardWidth);
+                setCurrentIndex(index);
+            }
+        };
+
+        const carousel = carouselRef.current;
+        if (carousel) {
+            carousel.addEventListener('scroll', handleScroll);
+            return () => carousel.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
+    // Reset index when role changes
+    useEffect(() => {
+        setCurrentIndex(0);
+        if (carouselRef.current) {
+            carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+    }, [activeRole]);
 
     return (
         <main className="min-h-screen bg-black text-foreground relative overflow-hidden">
@@ -71,11 +99,14 @@ export default function TeamPage() {
 
                 {/* Horizontal Carousel */}
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-thin justify-center">
+                    <div
+                        ref={carouselRef}
+                        className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-thin md:justify-center px-4 md:px-0"
+                    >
                         {roleMembers.map((member, index) => (
                             <div
                                 key={member.name}
-                                className="flex-shrink-0 w-[320px] snap-center animate-fade-in-up"
+                                className="flex-shrink-0 w-[260px] md:w-[320px] snap-center animate-fade-in-up"
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
                                 <div className="bg-black/60 backdrop-blur-md border border-white/10 hover:border-accent/50 overflow-hidden transition-all duration-300 group hover:shadow-lg hover:shadow-accent/20">
@@ -153,6 +184,29 @@ export default function TeamPage() {
                                     </div>
                                 </div>
                             </div>
+                        ))}
+                    </div>
+
+                    {/* Carousel Indicators (Mobile) */}
+                    <div className="flex justify-center gap-2 mt-4 md:hidden">
+                        {roleMembers.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => {
+                                    if (carouselRef.current) {
+                                        const cardWidth = 276; // 260px + 16px gap
+                                        carouselRef.current.scrollTo({
+                                            left: index * cardWidth,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                }}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${currentIndex === index
+                                    ? 'w-8 bg-accent'
+                                    : 'w-1.5 bg-white/20 hover:bg-white/40'
+                                    }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
                         ))}
                     </div>
                 </div>
