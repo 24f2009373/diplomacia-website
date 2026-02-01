@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 interface FAQItem {
     question: string;
-    answer: string | JSX.Element;
+    answer: string | React.ReactNode;
 }
 
 export default function FAQPage() {
@@ -16,6 +16,10 @@ export default function FAQPage() {
         {
             question: "What is Diplomacia?",
             answer: "Diplomacia is a student led official society of IITM BS Program for diplomacy, IR, Geopolitics, Soft skills, and events related to them."
+        },
+        {
+            question: "Who can participate in Diplomacia events?",
+            answer: "Most of our events are open to all students of the IITM BS Program. Some specialized workshops or competitions might have specific eligibility criteria, which will always be mentioned in the event announcement."
         },
         {
             question: "How to join?",
@@ -46,6 +50,18 @@ export default function FAQPage() {
         {
             question: "How to become a core member?",
             answer: "Core positions are rolled out as per requirements, please keep an eye on your student mail and our website."
+        },
+        {
+            question: "How often does the society meet?",
+            answer: "We conduct regular sessions and meetings, typically ranging from bi-weekly discussions to monthly flagship events. Specific schedules are shared via our official communication channels."
+        },
+        {
+            question: "What kind of soft skills can I expect to develop?",
+            answer: "Participants develop crucial skills including public speaking, negotiation, critical thinking, research, and diplomatic writing. You'll also learn to navigate complex geopolitical narratives and policy frameworks."
+        },
+        {
+            question: "Can my society/club collaborate with Diplomacia?",
+            answer: "Yes! We are always open to strategic alliances. Please reach out to us via our official email with your proposal, and our core team will get in touch."
         },
         {
             question: "What are the perks?",
