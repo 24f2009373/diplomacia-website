@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { featuredEvents } from "@/data/events";
+import { pastEvents } from "@/data/past_events";
+import { Instagram, Youtube, Linkedin, FileText, ArrowRight, ChevronDown } from "lucide-react";
 
 export default function EventsSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,11 +17,11 @@ export default function EventsSlider() {
     const event = featuredEvents[currentIndex];
 
     return (
-        <main className="min-h-screen w-full bg-background text-foreground overflow-hidden relative font-sans pt-24">
+        <main className="min-h-screen w-full bg-background text-foreground relative font-sans pt-24 scroll-smooth overflow-x-hidden">
             <Navbar />
 
             {/* Background Image Parallax/Fade */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 overflow-hidden">
                 <Image
                     src={event.thumbnail}
                     alt={event.title}
@@ -106,6 +108,7 @@ export default function EventsSlider() {
                 </div>
             )}
 
+
             {/* Slider Progress Indicators */}
             <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 flex gap-4 md:gap-6">
                 {featuredEvents.map((_, i) => (
@@ -139,7 +142,128 @@ export default function EventsSlider() {
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
+                @keyframes bounce-slow {
+                    0%, 100% { transform: translateY(-2px); }
+                    50% { transform: translateY(4px); }
+                }
+                @keyframes pulse-slow {
+                    0%, 100% { transform: scale(1); opacity: 0.4; }
+                    50% { transform: scale(1.1); opacity: 0.2; }
+                }
+                @keyframes ping-slow {
+                    0% { transform: scale(1); opacity: 0.6; }
+                    100% { transform: scale(1.6); opacity: 0; }
+                }
+                .animate-bounce-slow {
+                    animation: bounce-slow 3s ease-in-out infinite;
+                }
+                .animate-pulse-slow {
+                    animation: pulse-slow 4s ease-in-out infinite;
+                }
+                .animate-ping-slow {
+                    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+                }
             `}</style>
+
+            {/* Scroll Indicator - Positioned between sections */}
+            <div className="relative z-50 flex justify-center -mb-6 translate-y-[-50%]">
+                <button
+                    onClick={() => document.getElementById('archive-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="relative flex items-center justify-center group cursor-pointer"
+                    aria-label="Scroll to Archive"
+                >
+                    {/* Ring animation */}
+                    <div className="absolute inset-0 w-12 h-12 border border-accent/20 rounded-full animate-ping-slow" />
+                    <div className="absolute inset-0 w-12 h-12 border border-accent/40 rounded-full animate-pulse-slow" />
+
+                    {/* Circle and Arrow */}
+                    <div className="w-12 h-12 rounded-full border border-white/10 bg-midnight/20 backdrop-blur-md flex items-center justify-center overflow-hidden hover:border-accent/50 transition-colors duration-500">
+                        <ChevronDown className="w-5 h-5 text-accent animate-bounce-slow" />
+                    </div>
+                </button>
+            </div>
+
+            {/* Event Archive Section */}
+            <section id="archive-section" className="relative z-10 max-w-7xl mx-auto px-8 md:px-16 py-24 mb-24 border-t border-white/5">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div className="space-y-4">
+                        <p className="text-accent uppercase tracking-[0.5em] text-[10px]">Legacy of Excellence</p>
+                        <h2 className="text-4xl md:text-5xl font-serif italic gold-text">Event Archive</h2>
+                    </div>
+                    <Link
+                        href="/events/archive"
+                        className="group flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-foreground/60 hover:text-accent transition-colors duration-500"
+                    >
+                        Explore Full Library
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+                    </Link>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                    {pastEvents.slice(0, 6).map((event, index) => (
+                        <div key={index} className="group relative flex flex-col bg-midnight/30 border border-white/5 hover:border-accent/30 transition-all duration-700 hover:-translate-y-2 overflow-hidden shadow-2xl">
+                            {/* Image Container */}
+                            <div className="relative aspect-[16/10] overflow-hidden">
+                                <Image
+                                    src={event.image}
+                                    alt={event.name}
+                                    fill
+                                    className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-transparent opacity-60" />
+
+                                {/* Hover Indicator */}
+                                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <div className="w-8 h-8 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center border border-accent/40">
+                                        <ArrowRight className="w-4 h-4 text-accent" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="p-8 flex-1 flex flex-col space-y-4">
+                                <h3 className="text-xl font-serif italic gold-text lowercase first-letter:uppercase">{event.name}</h3>
+                                <p className="text-[10px] md:text-xs font-light text-foreground/60 leading-relaxed line-clamp-3 uppercase tracking-[0.15em]">
+                                    {event.content}
+                                </p>
+
+                                <div className="pt-4 mt-auto flex items-center gap-6">
+                                    {event.instaLink && (
+                                        <a href={event.instaLink} target="_blank" rel="noopener noreferrer" className="text-foreground/30 hover:text-accent transition-colors duration-300" title="Instagram">
+                                            <Instagram className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                    {event.youtubeLink && (
+                                        <a href={event.youtubeLink} target="_blank" rel="noopener noreferrer" className="text-foreground/30 hover:text-accent transition-colors duration-300" title="YouTube">
+                                            <Youtube className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                    {event.linkdinLink && (
+                                        <a href={event.linkdinLink} target="_blank" rel="noopener noreferrer" className="text-foreground/30 hover:text-accent transition-colors duration-300" title="LinkedIn">
+                                            <Linkedin className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                    {event.summary && (
+                                        <a href={event.summary} target="_blank" rel="noopener noreferrer" className="text-foreground/30 hover:text-accent transition-colors duration-300" title="Summary Document">
+                                            <FileText className="w-4 h-4" />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-20 flex justify-center">
+                    <Link
+                        href="/events/archive"
+                        className="px-12 py-4 border border-accent/20 hover:border-accent bg-accent/5 backdrop-blur-sm transition-all duration-700 group relative overflow-hidden"
+                    >
+                        <span className="relative z-10 text-[10px] uppercase tracking-[0.5em] group-hover:text-black transition-colors duration-700">Enter The Depths</span>
+                        <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
+                    </Link>
+                </div>
+            </section>
         </main>
     );
 }

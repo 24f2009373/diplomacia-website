@@ -1,0 +1,45 @@
+export { default as defaultImg } from './defaultAvatar.png';
+export { default as logoPng } from './logoPng.png';
+export { default as logoBlack } from './logoBlack.png';
+export { default as logoMun } from './munpng.png';
+export { default as logoMic } from './logoMic.png';
+export { default as Diplomacia_Logo_BG } from './Diplomacia_Logo_BG.jpg';
+// export { default as logoJpg } from './logo.jpg';
+export { default as piyush } from './Piyush.jpg';
+export { default as nivedita } from './Nivedita.jpg';
+export { default as rupkatha } from './Rupkatha.jpg';
+export { default as tamajit } from './Tamajit.jpeg';
+export { default as mayank } from './mayank.jpeg';
+export { default as arkaBanerjee } from './arkaBanerjee.jpg';
+export { default as Fathima } from './Fathima.jpg';
+export { default as Vaishnavi } from './Vaishnavi.jpg';
+export { default as Madhav } from './Madhav.jpg';
+
+export { default as theIndianParliament1 } from './theIndianParliament1.jpeg';
+export { default as theIndianParliament2 } from './theIndianParliament2.jpeg';
+export { default as NetworkingNexus } from './NetworkingNexus.jpeg';
+export { default as FrameFusion } from './FrameFusion.jpeg';
+export { default as ROPCOC } from './ROPCOC.jpeg';
+export { default as DiplomaciaTalks } from './DiplomaciaTalks.png';
+export { default as MUNRefugeechallenge } from './MUNRefugeechallenge.jpeg';
+export { default as GeneralAssembly } from './GeneralAssembly.jpeg';
+export { default as positionPaper } from './positionPaper.png';
+export { default as directions } from './directions.jpeg';
+export { default as ecosoc } from './ecosoc.jpeg';
+export { default as directionsEp2 } from './directionsEp2.png';
+export { default as directionsEp3 } from './directionsEp3.jpeg';
+export { default as JAM } from './JAM.jpg';
+export { default as Masterclass } from './MasterClassVarunR.png';
+export { default as Bootcamp } from './Bootcamp.png';
+export { default as Presentation } from './Presentation.jpg';
+export { default as ClimateCadets } from './ClimateCadets.png';
+export { default as FilmForum } from './FilmForum.jpg';
+export { default as BoneOfContention } from './BoneOfContention.jpg';
+export { default as JAM2 } from './JAM_2.jpg';
+
+// Testimonials
+export { default as mrSyan } from './mrSyanBanerjee.jpg';
+export { default as noarGilion } from './naorGilion.jpeg';
+export { default as vikramDoraiswami } from './VikramDoraiswami.jpeg';
+export { default as varunR } from './VarunR.jpg';
+export { default as mun2025Marghazi } from './MUN2025-marghazi.jpeg';
