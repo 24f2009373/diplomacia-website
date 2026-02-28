@@ -69,7 +69,7 @@ export const featuredEvents: FeaturedEvent[] = [
         slug: "position-paper-archive",
         title: "Position Paper Archive",
         subtitle: "The Vault of Strategic Thought",
-        description: "A comprehensive repository of scholarly research, formal policy statements, and strategic insights crafted by our global community of thinkers.",
+        description: "A comprehensive repository of scholarly research, formal policy statements, and strategic insights crafted by our diplomatic community of thinkers at IITM BS.",
         thumbnail: "/assets/featured_events/ppa/thumbnail.png",
         sessions: [],
         customCTAs: [
