@@ -111,28 +111,28 @@ export const team: TeamMember[] = [
         image: "/assets/team/event-research/lochan-goel.jpg",
         socials: { linkedin: "https://www.linkedin.com/in/lochan-goel-315147319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "lochangoel2601@gmail.com" },
     },
-    {
-        name: "Purnesh Agarwal",
-        role: "Event Research",
-        image: "/assets/team/event-research/purnesh-agarwal.jpeg",
-        socials: { linkedin: "https://www.linkedin.com/in/purnesh-agarwal-197b88313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/agpurnesh?igsh=MTNhZ3Nnd25hdmtmYw==", email: "purneshagarwal07@gmail.com" },
-    },
-    {
-        name: "Ram chandan",
-        role: "Event Research",
-        image: "/assets/team/placeholder.jpg",
-        socials: { email: "Ram10102000b@gmail.com" },
-    },
-    {
-        name: "Vaibhav Kumar",
-        role: "Event Research",
-        image: "/assets/team/event-research/vaibhav-kumar.jpg",
-        socials: { linkedin: "https://www.linkedin.com/in/vaibhavkumar2611", instagram: "https://www.instagram.com/vaibhav26_11?igsh=MTFqaWVvMGNjb200ZQ==", email: "vaibhav26112003@gmail.com" },
-    },
-    {
-        name: "Ashish Kumar",
-        role: "Event Research",
-        image: "/assets/team/event-research/ashish-kumar.jpg",
-        socials: { linkedin: "https://www.linkedin.com/in/ashish-kumar-5481a4322", instagram: "https://www.instagram.com/ashish_pathak457?igsh=MWE2bWtqcmk0dW85Yg==", email: "ashishkumar9572931180@gmail.com" },
-    },
+    // {
+    //     name: "Purnesh Agarwal",
+    //     role: "Event Research",
+    //     image: "/assets/team/event-research/purnesh-agarwal.jpeg",
+    //     socials: { linkedin: "https://www.linkedin.com/in/purnesh-agarwal-197b88313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/agpurnesh?igsh=MTNhZ3Nnd25hdmtmYw==", email: "purneshagarwal07@gmail.com" },
+    // },
+    // {
+    //     name: "Ram chandan",
+    //     role: "Event Research",
+    //     image: "/assets/team/placeholder.jpg",
+    //     socials: { email: "Ram10102000b@gmail.com" },
+    // },
+    // {
+    //     name: "Vaibhav Kumar",
+    //     role: "Event Research",
+    //     image: "/assets/team/event-research/vaibhav-kumar.jpg",
+    //     socials: { linkedin: "https://www.linkedin.com/in/vaibhavkumar2611", instagram: "https://www.instagram.com/vaibhav26_11?igsh=MTFqaWVvMGNjb200ZQ==", email: "vaibhav26112003@gmail.com" },
+    // },
+    // {
+    //     name: "Ashish Kumar",
+    //     role: "Event Research",
+    //     image: "/assets/team/event-research/ashish-kumar.jpg",
+    //     socials: { linkedin: "https://www.linkedin.com/in/ashish-kumar-5481a4322", instagram: "https://www.instagram.com/ashish_pathak457?igsh=MWE2bWtqcmk0dW85Yg==", email: "ashishkumar9572931180@gmail.com" },
+    // },
 ];
