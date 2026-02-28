@@ -13,6 +13,11 @@ export interface FeaturedEvent {
     description: string;
     thumbnail: string;
     sessions: EventSession[];
+    customCTAs?: {
+        label: string;
+        href: string;
+        primary?: boolean;
+    }[];
 }
 
 export const featuredEvents: FeaturedEvent[] = [
@@ -23,6 +28,7 @@ export const featuredEvents: FeaturedEvent[] = [
         description: "Our flagship debate series exploring diverse geopolitical themes, policy challenges, and social narratives through high-impact discourse.",
         thumbnail: "/assets/featured_events/minds_in_motion/session3/MIM.png",
         sessions: [
+            // ... (previous sessions)
             {
                 title: "Geopolitics & National Security",
                 description: "An intensive discussion on India's Kashmir policy and the evolving landscape of national security in the 21st century.",
@@ -56,6 +62,25 @@ export const featuredEvents: FeaturedEvent[] = [
                 description: "Security as Protection or Surveillance Overreach? Exploring the ethical and security implications of AI-driven phone tracking in the modern age.",
                 poster: "/assets/featured_events/minds_in_motion/session5/poster.jpeg",
                 videoUrl: "https://www.youtube.com/watch?v=L2d2GNLVzFY",
+            },
+        ],
+    },
+    {
+        slug: "position-paper-archive",
+        title: "Position Paper Archive",
+        subtitle: "The Vault of Strategic Thought",
+        description: "A comprehensive repository of scholarly research, formal policy statements, and strategic insights crafted by our global community of thinkers.",
+        thumbnail: "/assets/featured_events/ppa/thumbnail.png",
+        sessions: [],
+        customCTAs: [
+            {
+                label: "View Archive",
+                href: "/events/ppa-archive",
+            },
+            {
+                label: "Submit Paper",
+                href: "/events/position-paper-submit",
+                primary: true,
             },
         ],
     },
