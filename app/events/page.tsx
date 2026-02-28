@@ -6,13 +6,36 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { featuredEvents } from "@/data/events";
 import { pastEvents } from "@/data/past_events";
-import { Instagram, Youtube, Linkedin, FileText, ArrowRight, ChevronDown } from "lucide-react";
+import { Instagram, Youtube, Linkedin, FileText, ArrowRight, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function EventsSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const next = () => setCurrentIndex((prev) => (prev + 1) % featuredEvents.length);
     const prev = () => setCurrentIndex((prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length);
+
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    // Minimum swipe distance (in px)
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) next();
+        if (isRightSwipe) prev();
+    };
 
     const event = featuredEvents[currentIndex];
 
@@ -21,7 +44,7 @@ export default function EventsSlider() {
             <Navbar />
 
             {/* Background Image Parallax/Fade */}
-            <div className="absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute inset-0 z-0 overflow-hidden text-black/0 select-none pointer-events-none">
                 <Image
                     src={event.thumbnail}
                     alt={event.title}
@@ -31,9 +54,13 @@ export default function EventsSlider() {
                 <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
             </div>
 
-            <div className="relative z-10 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center px-8 md:px-16 py-8">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl w-full">
-
+            <div
+                className="relative z-10 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center px-6 md:px-24 lg:px-32 py-12 md:py-16 touch-pan-y"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+            >
+                <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 max-w-6xl w-full pb-20 md:pb-0">
                     {/* Poster Section - Optimized size to fit viewport */}
                     <div className="w-full max-w-[200px] md:max-w-[280px] aspect-[4/5] relative group animate-fade-in shadow-2xl shrink-0">
                         <div className="relative h-full w-full border border-white/10 overflow-hidden bg-midnight">
@@ -48,7 +75,7 @@ export default function EventsSlider() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="flex-1 space-y-4 md:space-y-5 text-center md:text-left animate-fade-in-up">
+                    <div className="flex-1 space-y-4 md:space-y-6 text-center md:text-left animate-fade-in-up">
                         <div className="space-y-2">
                             <p className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px]">Featured Event</p>
                             <h1 className="text-3xl md:text-5xl font-serif italic gold-text leading-tight">{event.title}</h1>
@@ -61,64 +88,80 @@ export default function EventsSlider() {
                             {event.description}
                         </p>
 
-                        <div className="pt-3 md:pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-16 md:mb-0">
-                            <Link
-                                href={`/events/${event.slug}`}
-                                className="relative z-50 inline-block px-8 py-2.5 md:py-3 border border-accent/40 text-[9px] md:text-[10px] uppercase tracking-[0.4em] hover:bg-accent hover:text-black transition-all duration-700 bg-black/40 backdrop-blur-md group"
-                            >
-                                <span className="flex items-center gap-3">
-                                    Explore Sessions
-                                    <div className="w-6 h-[1px] bg-accent group-hover:bg-black group-hover:w-10 transition-all duration-700" />
-                                </span>
-                            </Link>
+                        <div className="pt-3 md:pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            {event.customCTAs ? (
+                                event.customCTAs.map((cta, i) => (
+                                    <Link
+                                        key={i}
+                                        href={cta.href}
+                                        className={`relative z-50 inline-block px-8 py-2.5 md:py-3 border ${cta.primary ? 'border-accent bg-accent text-black hover:bg-accent/80' : 'border-accent/40 text-accent hover:bg-accent hover:text-black'} text-[9px] md:text-[10px] uppercase tracking-[0.4em] transition-all duration-700 backdrop-blur-md group`}
+                                    >
+                                        <span className="flex items-center gap-3">
+                                            {cta.label}
+                                            <div className={`w-6 h-[1px] ${cta.primary ? 'bg-black' : 'bg-accent group-hover:bg-black'} group-hover:w-10 transition-all duration-700`} />
+                                        </span>
+                                    </Link>
+                                ))
+                            ) : (
+                                <>
+                                    <Link
+                                        href={`/events/${event.slug}`}
+                                        className="relative z-50 inline-block px-8 py-2.5 md:py-3 border border-accent/40 text-[9px] md:text-[10px] uppercase tracking-[0.4em] hover:bg-accent hover:text-black transition-all duration-700 bg-black/40 backdrop-blur-md group"
+                                    >
+                                        <span className="flex items-center gap-3">
+                                            Explore Sessions
+                                            <div className="w-6 h-[1px] bg-accent group-hover:bg-black group-hover:w-10 transition-all duration-700" />
+                                        </span>
+                                    </Link>
 
-                            <a
-                                href="https://chat.whatsapp.com/D9pthdzI6h0KvwHIcyZEJ7"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="relative z-50 inline-block px-8 py-2.5 md:py-3 border border-accent text-[9px] md:text-[10px] uppercase tracking-[0.4em] bg-accent text-black hover:bg-accent/80 transition-all duration-700 backdrop-blur-md group"
-                            >
-                                <span className="flex items-center gap-3">
-                                    Join Event
-                                    <div className="w-6 h-[1px] bg-black group-hover:w-10 transition-all duration-700" />
-                                </span>
-                            </a>
+                                    <a
+                                        href="https://chat.whatsapp.com/D9pthdzI6h0KvwHIcyZEJ7"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative z-50 inline-block px-8 py-2.5 md:py-3 border border-accent text-[9px] md:text-[10px] uppercase tracking-[0.4em] bg-accent text-black hover:bg-accent/80 transition-all duration-700 backdrop-blur-md group"
+                                    >
+                                        <span className="flex items-center gap-3">
+                                            Join Event
+                                            <div className="w-6 h-[1px] bg-black group-hover:w-10 transition-all duration-700" />
+                                        </span>
+                                    </a>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Slider Navigation Buttons */}
-            {featuredEvents.length > 1 && (
-                <div className="absolute top-1/2 -translate-y-1/2 inset-x-8 md:inset-x-12 flex justify-between pointer-events-none">
-                    <button
-                        onClick={prev}
-                        className="pointer-events-auto p-4 md:p-6 border border-white/5 bg-background/20 backdrop-blur-sm hover:border-accent/40 transition-all group"
-                        aria-label="Previous Event"
-                    >
-                        <div className="w-6 md:w-10 h-[1px] bg-white/50 group-hover:bg-accent transition-all group-hover:w-14" />
-                    </button>
-                    <button
-                        onClick={next}
-                        className="pointer-events-auto p-4 md:p-6 border border-white/5 bg-background/20 backdrop-blur-sm hover:border-accent/40 transition-all group"
-                        aria-label="Next Event"
-                    >
-                        <div className="w-6 md:w-10 h-[1px] bg-white/50 group-hover:bg-accent transition-all group-hover:w-14" />
-                    </button>
+                {/* Slider Navigation Buttons - Positioned further out */}
+                {featuredEvents.length > 1 && (
+                    <div className="absolute top-1/2 -translate-y-1/2 inset-x-2 md:inset-x-6 lg:inset-x-8 hidden md:flex justify-between pointer-events-none z-[60]">
+                        <button
+                            onClick={prev}
+                            className="pointer-events-auto p-3 md:p-3 rounded-full border border-white/10 bg-midnight/40 backdrop-blur-md hover:border-accent group transition-all duration-500"
+                            aria-label="Previous Event"
+                        >
+                            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white/50 group-hover:text-accent transition-colors" />
+                        </button>
+                        <button
+                            onClick={next}
+                            className="pointer-events-auto p-3 md:p-3 rounded-full border border-white/10 bg-midnight/40 backdrop-blur-md hover:border-accent group transition-all duration-500"
+                            aria-label="Next Event"
+                        >
+                            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white/50 group-hover:text-accent transition-colors" />
+                        </button>
+                    </div>
+                )}
+
+                {/* Slider Progress Indicators - Positioned at the very bottom area */}
+                <div className="absolute bottom-10 md:bottom-12 left-1/2 -translate-x-1/2 z-50 flex gap-3 md:gap-4">
+                    {featuredEvents.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrentIndex(i)}
+                            className={`transition-all duration-700 rounded-full ${i === currentIndex ? 'w-8 md:w-12 h-[2px] bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]' : 'w-2 h-[2px] bg-white/20 hover:bg-white/40'}`}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
                 </div>
-            )}
-
-
-            {/* Slider Progress Indicators */}
-            <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 flex gap-4 md:gap-6">
-                {featuredEvents.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrentIndex(i)}
-                        className={`h-[2px] transition-all duration-700 ${i === currentIndex ? 'w-12 md:w-20 bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]' : 'w-4 md:w-6 bg-white/20 hover:bg-white/40'}`}
-                        aria-label={`Go to slide ${i + 1}`}
-                    />
-                ))}
             </div>
 
             <style jsx global>{`
