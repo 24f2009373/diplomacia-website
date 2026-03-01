@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import { BookOpen, Send, Library, ChevronRight } from "lucide-react";
+import { BookOpen, Send, Library, ChevronRight, Users } from "lucide-react";
 
 const MENU_ITEMS = [
     { id: 'about', label: 'About PPA', icon: BookOpen },
     { id: 'submit', label: 'Submit', icon: Send },
     { id: 'resources', label: 'Resources', icon: Library },
+    { id: 'reviewer', label: 'Reviewers', icon: Users },
 ];
 
 export default function PPASubmitPage() {
@@ -239,6 +240,34 @@ export default function PPASubmitPage() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    )}
+                    {activeTab === 'reviewer' && (
+                        <div className="max-w-4xl animate-fade-in pb-20 flex flex-col items-center">
+                            <div className="mb-12 space-y-2 text-center w-full">
+                                <p className="text-accent uppercase tracking-[0.4em] text-[10px] font-semibold italic">Academic Contribution</p>
+                                <h2 className="text-3xl md:text-5xl font-serif italic gold-text">Reviewer Application</h2>
+                                <div className="h-[1px] w-12 bg-accent/30 mx-auto" />
+                            </div>
+
+                            <div className="w-full max-w-[640px] bg-midnight/30 border border-white/5 rounded-sm p-1 relative group overflow-hidden">
+                                {/* Decorative border glow */}
+                                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+                                <iframe
+                                    src="https://docs.google.com/forms/d/e/1FAIpQLSfQOgtPxoqPtnF8coOagtvROWl34PpPm-c7mMdinwAXYaiI3g/viewform?embedded=true"
+                                    className="w-full min-h-[80vh] md:h-[892px] rounded-sm relative z-10"
+                                    frameBorder="0"
+                                    marginHeight={0}
+                                    marginWidth={0}
+                                >
+                                    Loading…
+                                </iframe>
+                            </div>
+
+                            <p className="mt-8 text-[10px] uppercase tracking-[0.2em] text-foreground/30 italic">
+                                "Rigorous review is the foundation of scholarly integrity."
+                            </p>
                         </div>
                     )}
                 </section>
