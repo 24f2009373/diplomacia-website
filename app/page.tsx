@@ -6,6 +6,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import OrientationVideo from "@/components/OrientationVideo";
 import { Users, Send, BookOpen, FileText } from "lucide-react";
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+
+      <OrientationVideo />
 
       {/* About Section */}
       <section id="our-vision" className="py-32 px-8 md:px-16 lux-gradient overflow-hidden border-y border-white/5">
@@ -96,7 +99,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Strategic Portals Section */}
       <section className="py-24 px-8 md:px-16 bg-midnight/10 border-b border-white/5 relative overflow-hidden">
