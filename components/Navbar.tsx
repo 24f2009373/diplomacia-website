@@ -61,6 +61,8 @@ export default function Navbar() {
                                             <p className="text-[9px] uppercase tracking-[0.4em] text-accent/60 mb-2 border-b border-accent/20 pb-2">Featured Events</p>
                                             <Link href="/events/minds-in-motion" className="hover:text-accent hover:translate-x-1 transition-all">Minds in Motion</Link>
                                             <Link href="/events/research-x-debate" className="hover:text-accent hover:translate-x-1 transition-all">Research x Debate</Link>
+                                            <Link href="/events/aippm" className="hover:text-accent hover:translate-x-1 transition-all">AIPPM 2026</Link>
+                                            <Link href="/events/mun" className="hover:text-accent hover:translate-x-1 transition-all">Model United Nations</Link>
                                             <Link href="/events/ppa-archive" className="hover:text-accent hover:translate-x-1 transition-all">PPA Archive</Link>
                                         </div>
                                     </div>
