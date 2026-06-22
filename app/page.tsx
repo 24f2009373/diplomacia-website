@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -11,11 +11,55 @@ import { Users, Send, BookOpen, FileText } from "lucide-react";
 
 export default function Home() {
   const [selectedLogo, setSelectedLogo] = useState<{ file: string; name: string } | null>(null);
+  const [activeBanner, setActiveBanner] = useState(0);
+
+  const banners = [
+    {
+      tag: "Flagship Event",
+      title: "AIPPM 2026",
+      details: "Discussions on the 131st Amendment Bill • Delhi, 28 June",
+      detailsMobile: "Delhi, 28 June",
+      href: "/events/aippm"
+    },
+    {
+      tag: "Virtual Conference",
+      title: "Model United Nations",
+      details: "UN4MUN Framework Simulation • Online, 27 - 28 June",
+      detailsMobile: "Online, 27-28 June",
+      href: "/events/mun"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveBanner((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+      
+      {/* Flagship Event Announcement Banner */}
+      <div className="sticky top-[72px] md:top-[88px] z-30 w-full bg-black/95 backdrop-blur-md border-y border-accent/20 py-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left pl-[110px] sm:pl-[140px] md:pl-56 pr-6 md:pr-16">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <span className="inline-block px-2.5 py-0.5 border border-accent/30 bg-accent/10 text-accent text-[8px] uppercase tracking-wider font-extrabold rounded-sm animate-pulse shrink-0 transition-all duration-500">
+              {banners[activeBanner].tag}
+            </span>
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.15em] text-foreground/90 font-medium transition-all duration-500">
+              <span className="text-accent font-bold">{banners[activeBanner].title}: </span>
+              <span className="hidden sm:inline">{banners[activeBanner].details}</span>
+              <span className="inline sm:hidden">{banners[activeBanner].detailsMobile}</span>
+            </p>
+          </div>
+          <Link href={banners[activeBanner].href} className="px-5 py-1.5 bg-accent text-black text-[9px] uppercase tracking-[0.3em] font-extrabold hover:bg-accent/80 hover:scale-105 transition-all duration-500 shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            Register Now &rarr;
+          </Link>
+        </div>
+      </div>
 
       <OrientationVideo />
 
