@@ -218,7 +218,7 @@ export default function MUNEventPage() {
                         <Calendar className="w-6 h-6 text-accent" />
                         <div className="text-center">
                             <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Date</p>
-                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">27 - 28 June 2026</p>
+                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">4 - 5 July 2026</p>
                         </div>
                     </div>
 
