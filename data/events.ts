@@ -32,7 +32,7 @@ export const featuredEvents: FeaturedEvent[] = [
         sessions: [
             {
                 title: "AIPPM 2026",
-                date: "28 June 2026",
+                date: "5 July 2026",
                 description: "Discussions on the Constitution (131st Amendment) Bill, 2026 with Special Emphasis on Women's Reservation and Delimitation.",
                 poster: "/assets/featured_events/aippm/AIPPM 2026.png"
             }
@@ -46,6 +46,32 @@ export const featuredEvents: FeaturedEvent[] = [
             {
                 label: "View Brochure",
                 href: "/assets/featured_events/aippm/Diplomacia's Aippm.pdf",
+            }
+        ]
+    },
+    {
+        slug: "mun",
+        title: "Model United Nations",
+        subtitle: "Virtual Conference (UN4MUN)",
+        description: "The conference follows the UN4MUN framework, offering participants an authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
+        thumbnail: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg",
+        sessions: [
+            {
+                title: "Model United Nations",
+                date: "4 - 5 July 2026",
+                description: "An authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
+                poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg"
+            }
+        ],
+        customCTAs: [
+            {
+                label: "Register Now",
+                href: "/events/mun#register",
+                primary: true,
+            },
+            {
+                label: "Explore Event",
+                href: "/events/mun",
             }
         ]
     },
@@ -181,30 +207,5 @@ export const featuredEvents: FeaturedEvent[] = [
             }
         ]
     },
-    {
-        slug: "mun",
-        title: "Model United Nations",
-        subtitle: "Virtual Conference (UN4MUN)",
-        description: "The conference follows the UN4MUN framework, offering participants an authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
-        thumbnail: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg",
-        sessions: [
-            {
-                title: "Model United Nations",
-                date: "27 - 28 June 2026",
-                description: "An authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
-                poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg"
-            }
-        ],
-        customCTAs: [
-            {
-                label: "Register Now",
-                href: "/events/mun#register",
-                primary: true,
-            },
-            {
-                label: "Explore Event",
-                href: "/events/mun",
-            }
-        ]
-    }
+    
 ];

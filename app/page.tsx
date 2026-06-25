@@ -17,15 +17,15 @@ export default function Home() {
     {
       tag: "Flagship Event",
       title: "AIPPM 2026",
-      details: "Discussions on the 131st Amendment Bill • Delhi, 28 June",
-      detailsMobile: "Delhi, 28 June",
+      details: "Discussions on the 131st Amendment Bill • Delhi, 5 July",
+      detailsMobile: "Delhi, 5 July",
       href: "/events/aippm"
     },
     {
       tag: "Virtual Conference",
       title: "Model United Nations",
-      details: "UN4MUN Framework Simulation • Online, 27 - 28 June",
-      detailsMobile: "Online, 27-28 June",
+      details: "UN4MUN Framework Simulation • Online, 4 - 5 July",
+      detailsMobile: "Online, 4-5 July",
       href: "/events/mun"
     }
   ];
