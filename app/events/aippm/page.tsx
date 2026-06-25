@@ -40,10 +40,10 @@ export default function AIPPMEventPage() {
             src: "/assets/featured_events/aippm/AIPPM 2026.png",
             title: "AIPPM 2026 Poster & Agenda"
         },
-        {
-            src: "/assets/featured_events/aippm/page-2.png",
-            title: "AIPPM Event Overview & Expectations"
-        }
+        // {
+        //     src: "/assets/featured_events/aippm/page-2.png",
+        //     title: "AIPPM Event Overview & Expectations"
+        // }
     ];
 
     const focusAreas = [
