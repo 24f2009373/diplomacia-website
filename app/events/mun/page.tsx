@@ -42,10 +42,10 @@ export default function MUNEventPage() {
             src: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg",
             title: "Model United Nations Poster & Invitation"
         },
-        {
-            src: "/assets/featured_events/mun/brochure-page-2.png",
-            title: "MUN Event Overview & Details"
-        }
+        // {
+        //     src: "/assets/featured_events/mun/brochure-page-2.png",
+        //     title: "MUN Event Overview & Details"
+        // }
     ];
 
     const un4munConcepts = [
