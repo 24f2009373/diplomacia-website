@@ -32,7 +32,6 @@ export const featuredEvents: FeaturedEvent[] = [
         sessions: [
             {
                 title: "AIPPM 2026",
-                date: "5 July 2026",
                 description: "Discussions on the Constitution (131st Amendment) Bill, 2026 with Special Emphasis on Women's Reservation and Delimitation.",
                 poster: "/assets/featured_events/aippm/AIPPM 2026.png"
             }
@@ -58,7 +57,6 @@ export const featuredEvents: FeaturedEvent[] = [
         sessions: [
             {
                 title: "Model United Nations",
-                date: "4 - 5 July 2026",
                 description: "An authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
                 poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg"
             }
