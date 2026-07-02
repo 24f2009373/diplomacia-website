@@ -17,15 +17,15 @@ export default function Home() {
     {
       tag: "Flagship Event",
       title: "AIPPM 2026",
-      details: "Discussions on the 131st Amendment Bill • Delhi, 5 July",
-      detailsMobile: "Delhi, 5 July",
+      details: "Discussions on the 131st Amendment Bill • Delhi",
+      detailsMobile: "Delhi",
       href: "/events/aippm"
     },
     {
       tag: "Virtual Conference",
       title: "Model United Nations",
-      details: "UN4MUN Simulation • Online, 4-5 July • ₹10k Prize Pool • Certificates for All • Guest Lecturer",
-      detailsMobile: "Online, 4-5 July • ₹10k Prizes",
+      details: "UN4MUN Simulation • Online • ₹10k Prize Pool • Certificates for All • Guest Lecturer",
+      detailsMobile: "Online • ₹10k Prizes",
       href: "/events/mun"
     }
   ];
@@ -166,10 +166,6 @@ export default function Home() {
                   <span className="inline-block px-3 py-1 border border-accent/30 bg-accent/5 text-accent text-[8px] uppercase tracking-wider font-extrabold rounded-sm">
                     Flagship Event
                   </span>
-                  <div className="flex items-center gap-2 text-foreground/40 text-[10px] uppercase tracking-widest font-mono">
-                    <Calendar className="w-3.5 h-3.5 text-accent/60" />
-                    <span>5 July 2026</span>
-                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -231,10 +227,6 @@ export default function Home() {
                   <span className="inline-block px-3 py-1 border border-accent/30 bg-accent/5 text-accent text-[8px] uppercase tracking-wider font-extrabold rounded-sm">
                     Virtual Conference
                   </span>
-                  <div className="flex items-center gap-2 text-foreground/40 text-[10px] uppercase tracking-widest font-mono">
-                    <Calendar className="w-3.5 h-3.5 text-accent/60" />
-                    <span>4 - 5 July 2026</span>
-                  </div>
                 </div>
 
                 <div className="space-y-2">

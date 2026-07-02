@@ -213,15 +213,7 @@ export default function MUNEventPage() {
                 </div>
 
                 {/* Quick Details Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mt-12 md:mt-16">
-                    <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
-                        <Calendar className="w-6 h-6 text-accent" />
-                        <div className="text-center">
-                            <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Date</p>
-                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">4 - 5 July 2026</p>
-                        </div>
-                    </div>
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl w-full mt-12 md:mt-16">
                     <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
                         <Laptop className="w-6 h-6 text-accent" />
                         <div className="text-center">
