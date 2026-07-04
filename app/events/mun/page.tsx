@@ -137,9 +137,10 @@ export default function MUNEventPage() {
     ];
 
     const awardsList = [
-        { category: "Best Delegate", qty: 2, amount: "₹2,500", total: "₹5,000" },
-        { category: "High Commendation", qty: 2, amount: "₹1,500", total: "₹3,000" },
-        { category: "Special Mention", qty: 2, amount: "₹500", total: "₹1,000" }
+        { category: "Best Delegate", qty: 3, amount: "₹1,500", total: "₹4,500" },
+        { category: "High Commendation", qty: 3, amount: "₹1,000", total: "₹3,000" },
+        { category: "Special Mention", qty: 3, amount: "₹500", total: "₹1,500" },
+        { category: "Best Position Papers", qty: 2, amount: "₹500", total: "₹1,000" }
     ];
 
     const rubrics = [
