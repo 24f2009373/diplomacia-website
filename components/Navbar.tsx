@@ -59,10 +59,11 @@ export default function Navbar() {
                                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300">
                                         <div className="bg-midnight/95 backdrop-blur-xl border border-white/10 p-6 flex flex-col gap-6 min-w-[240px] shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
                                             <p className="text-[9px] uppercase tracking-[0.4em] text-accent/60 mb-2 border-b border-accent/20 pb-2">Featured Events</p>
-                                            <Link href="/events/minds-in-motion" className="hover:text-accent hover:translate-x-1 transition-all">Minds in Motion</Link>
-                                            <Link href="/events/research-x-debate" className="hover:text-accent hover:translate-x-1 transition-all">Research x Debate</Link>
                                             <Link href="/events/aippm" className="hover:text-accent hover:translate-x-1 transition-all">AIPPM 2026</Link>
                                             <Link href="/events/mun" className="hover:text-accent hover:translate-x-1 transition-all">Model United Nations</Link>
+                                            <Link href="/events/ai-music-gen" className="hover:text-accent hover:translate-x-1 transition-all">AI-Generated Music</Link>
+                                            <Link href="/events/minds-in-motion" className="hover:text-accent hover:translate-x-1 transition-all">Minds in Motion</Link>
+                                            <Link href="/events/research-x-debate" className="hover:text-accent hover:translate-x-1 transition-all">Research x Debate</Link>
                                             <Link href="/events/ppa-archive" className="hover:text-accent hover:translate-x-1 transition-all">PPA Archive</Link>
                                         </div>
                                     </div>

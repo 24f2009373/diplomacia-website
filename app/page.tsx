@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import OrientationVideo from "@/components/OrientationVideo";
-import { Users, Send, BookOpen, FileText, Calendar, Shield, Award, GraduationCap, CheckCircle, ArrowRight } from "lucide-react";
+import { Users, Send, BookOpen, FileText, Calendar, Shield, Award, GraduationCap, CheckCircle, ArrowRight, Music, Clock, MapPin } from "lucide-react";
 
 export default function Home() {
   const [selectedLogo, setSelectedLogo] = useState<{ file: string; name: string } | null>(null);
@@ -24,18 +24,25 @@ export default function Home() {
     {
       tag: "Virtual Conference",
       title: "Model United Nations",
-      details: "UN4MUN Simulation • Online • ₹10k Prize Pool • Certificates for All • Guest Lecturer",
-      detailsMobile: "Online • ₹10k Prizes",
+      details: "UN4MUN Simulation • 11-12 July • Online • ₹10k Prize Pool • Certificates for All • Guest Lecturer",
+      detailsMobile: "11-12 July • Online • ₹10k Prizes",
       href: "/events/mun"
+    },
+    {
+      tag: "Panel Discussion",
+      title: "AI-Generated Music",
+      details: "Wednesday, July 8 • American Center, New Delhi • Promoting U.S. Leadership in AI • Experts Panel",
+      detailsMobile: "Wednesday, July 8 • Delhi",
+      href: "/events/ai-music-gen"
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveBanner((prev) => (prev === 0 ? 1 : 0));
+      setActiveBanner((prev) => (prev + 1) % banners.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [banners.length]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -154,7 +161,7 @@ export default function Home() {
             <div className="h-[1px] w-24 bg-accent/30 mx-auto mt-6" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* AIPPM Card */}
             <div className="group relative p-8 md:p-10 bg-midnight/40 backdrop-blur-xl border border-white/10 hover:border-accent/40 transition-all duration-700 flex flex-col justify-between hover:shadow-[0_0_50px_rgba(212,175,55,0.08)]">
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-all duration-700">
@@ -178,23 +185,23 @@ export default function Home() {
                 </div>
 
                 <p className="text-xs md:text-sm font-light text-foreground/60 leading-relaxed uppercase tracking-[0.08em]">
-                  Simulating India's political landscape. Delegates represent parties to debate national reforms, negotiate policy positions, and build legislative consensus.
+                  Simulating India's political landscape, where delegates negotiate national reforms, debate key legislative bills, and draft future policies.
                 </p>
 
                 <div className="h-[1px] w-12 bg-accent/20" />
 
                 <div className="space-y-3.5">
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80">Constitution (131st Amendment) Bill Debate</span>
+                    <MapPin className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      Delhi, India
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80">Delhi (In-Person Conference)</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80">Portfolio Allocations & Strategy</span>
+                    <Award className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      Organized by Diplomacia IIT Madras
+                    </span>
                   </div>
                 </div>
               </div>
@@ -246,6 +253,12 @@ export default function Home() {
 
                 <div className="space-y-3.5">
                   <div className="flex items-center gap-3">
+                    <Calendar className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      11-12 July 2026
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
                     <Award className="w-4 h-4 text-accent shrink-0" />
                     <span className="text-[10px] md:text-xs uppercase tracking-wider text-accent font-extrabold">
                       ₹10,000 Cash Prize Pool
@@ -279,6 +292,73 @@ export default function Home() {
                   className="px-6 py-2.5 bg-accent text-black text-[9px] uppercase tracking-[0.3em] font-extrabold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                 >
                   Register Now
+                </Link>
+              </div>
+            </div>
+
+            {/* AI-Generated Music Card */}
+            <div className="group relative p-8 md:p-10 bg-midnight/40 backdrop-blur-xl border border-white/10 hover:border-accent/40 transition-all duration-700 flex flex-col justify-between hover:shadow-[0_0_50px_rgba(212,175,55,0.08)]">
+              <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-all duration-700">
+                <Music className="w-32 h-32 text-accent animate-pulse" />
+              </div>
+              
+              <div className="space-y-6">
+                <div className="flex justify-between items-start">
+                  <span className="inline-block px-3 py-1 border border-accent/30 bg-accent/5 text-accent text-[8px] uppercase tracking-wider font-extrabold rounded-sm">
+                    Panel Discussion
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-2xl md:text-3xl font-serif text-white group-hover:text-accent transition-colors duration-500">
+                    AI-Generated Music
+                  </h4>
+                  <p className="text-xs uppercase tracking-[0.2em] text-foreground/50 italic">
+                    American Center Event
+                  </p>
+                </div>
+
+                <p className="text-xs md:text-sm font-light text-foreground/60 leading-relaxed uppercase tracking-[0.08em]">
+                  Examining the impact of AI on music creation, responsible use, IP rights, and international cultural exchange.
+                </p>
+
+                <div className="h-[1px] w-12 bg-accent/20" />
+
+                <div className="space-y-3.5">
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      Wednesday, July 8, 2026
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      2:30 PM - 4:30 PM
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/80 font-medium">
+                      American Center, Delhi
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+                <Link
+                  href="/events/ai-music-gen"
+                  className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/60 hover:text-accent transition-colors flex items-center gap-2 group/btn"
+                >
+                  Explore Details
+                  <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/events/ai-music-gen#rsvp"
+                  className="px-6 py-2.5 bg-accent text-black text-[9px] uppercase tracking-[0.3em] font-extrabold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+                >
+                  RSVP Now
                 </Link>
               </div>
             </div>

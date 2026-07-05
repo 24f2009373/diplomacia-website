@@ -57,6 +57,7 @@ export const featuredEvents: FeaturedEvent[] = [
         sessions: [
             {
                 title: "Model United Nations",
+                date: "11th - 12th July 2026",
                 description: "An authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
                 poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg"
             }
@@ -70,6 +71,32 @@ export const featuredEvents: FeaturedEvent[] = [
             {
                 label: "Explore Event",
                 href: "/events/mun",
+            }
+        ]
+    },
+    {
+        slug: "ai-music-gen",
+        title: "AI-Generated Music",
+        subtitle: "Promoting U.S. Leadership in AI",
+        description: "This program examines the impact of artificial intelligence on music creation and the creative economy, with an emphasis on responsible AI use and policy development. Featuring experts from the AI industry, the session will highlight U.S.-developed tools and approaches that support creators, strengthen industry standards, and advance compliance and intellectual property protections, while fostering creativity, entrepreneurship, and international cultural exchange.",
+        thumbnail: "/assets/featured_events/ai_music_gen_am_center/poster.jpeg",
+        sessions: [
+            {
+                title: "AI-Generated Music Panel Discussion",
+                date: "Wednesday, July 8, 2026",
+                description: "A panel discussion examining the impact of AI on music creation, responsible AI policies, IP protections, and U.S. leadership in AI tools.",
+                poster: "/assets/featured_events/ai_music_gen_am_center/poster.jpeg"
+            }
+        ],
+        customCTAs: [
+            {
+                label: "RSVP Now",
+                href: "/events/ai-music-gen#rsvp",
+                primary: true,
+            },
+            {
+                label: "Explore Event",
+                href: "/events/ai-music-gen",
             }
         ]
     },
