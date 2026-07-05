@@ -154,10 +154,16 @@ export default function AIMusicGenEventPage() {
 
                 <div className="flex flex-wrap gap-4 justify-center mt-10 relative z-50">
                     <a 
-                        href="#rsvp" 
+                        href="#register" 
                         className="px-8 py-3 bg-accent text-black hover:bg-accent/80 transition-all duration-700 text-[10px] uppercase tracking-[0.4em] font-semibold shadow-lg hover:shadow-accent/20"
                     >
-                        RSVP Details
+                        Register Now
+                    </a>
+                    <a 
+                        href="#rsvp"
+                        className="px-8 py-3 border border-white/10 hover:border-accent hover:text-accent transition-all duration-700 text-[10px] uppercase tracking-[0.4em] bg-midnight/10 backdrop-blur-sm cursor-pointer"
+                    >
+                        RSVP / Support Contacts
                     </a>
                     <button 
                         onClick={() => setSelectedImage("/assets/featured_events/ai_music_gen_am_center/poster.jpeg")}
@@ -248,6 +254,30 @@ export default function AIMusicGenEventPage() {
                             </div>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* REGISTRATION FORM SECTION */}
+            <section id="register" className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 border-t border-white/5 scroll-mt-24">
+                <div className="text-center space-y-4 mb-12">
+                    <p className="text-accent uppercase tracking-[0.5em] text-[10px]">Registration Portal</p>
+                    <h2 className="text-3xl md:text-5xl font-serif italic gold-text">Event Registration</h2>
+                    <p className="text-xs uppercase tracking-[0.2em] text-foreground/50 max-w-lg mx-auto">
+                        Fill out the official Google Form below to register for the Panel Discussion at the American Center.
+                    </p>
+                    <div className="h-[1px] w-16 bg-accent/30 mx-auto mt-4" />
+                </div>
+
+                <div className="max-w-4xl mx-auto bg-midnight/30 border border-white/10 backdrop-blur-xl rounded-sm p-4 md:p-8 shadow-2xl relative">
+                    <div className="w-full relative overflow-hidden rounded-sm bg-midnight/60 border border-white/5 h-[800px] md:h-[900px]">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSc-SSiSKHPM8Bhrlat2Q2QQS0RpOM7ncHS6GX9aVPM6ycyTYw/viewform?embedded=true"
+                            className="absolute inset-0 w-full h-full border-0"
+                            title="AI-Generated Music Registration Form"
+                        >
+                            Loading…
+                        </iframe>
+                    </div>
                 </div>
             </section>
 

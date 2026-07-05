@@ -90,8 +90,8 @@ export const featuredEvents: FeaturedEvent[] = [
         ],
         customCTAs: [
             {
-                label: "RSVP Now",
-                href: "/events/ai-music-gen#rsvp",
+                label: "Register Now",
+                href: "/events/ai-music-gen#register",
                 primary: true,
             },
             {

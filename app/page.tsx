@@ -355,10 +355,10 @@ export default function Home() {
                   <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1.5 transition-transform" />
                 </Link>
                 <Link
-                  href="/events/ai-music-gen#rsvp"
+                  href="/events/ai-music-gen#register"
                   className="px-6 py-2.5 bg-accent text-black text-[9px] uppercase tracking-[0.3em] font-extrabold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                 >
-                  RSVP Now
+                  Register Now
                 </Link>
               </div>
             </div>
