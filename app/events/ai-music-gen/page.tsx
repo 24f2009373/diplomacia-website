@@ -17,7 +17,8 @@ import {
     FileCheck2,
     Lock,
     Phone,
-    Mail
+    Mail,
+    Linkedin
 } from "lucide-react";
 
 export default function AIMusicGenEventPage() {
@@ -154,10 +155,16 @@ export default function AIMusicGenEventPage() {
 
                 <div className="flex flex-wrap gap-4 justify-center mt-10 relative z-50">
                     <a 
-                        href="#rsvp" 
+                        href="#register" 
                         className="px-8 py-3 bg-accent text-black hover:bg-accent/80 transition-all duration-700 text-[10px] uppercase tracking-[0.4em] font-semibold shadow-lg hover:shadow-accent/20"
                     >
-                        RSVP Details
+                        Register Now
+                    </a>
+                    <a 
+                        href="#rsvp"
+                        className="px-8 py-3 border border-white/10 hover:border-accent hover:text-accent transition-all duration-700 text-[10px] uppercase tracking-[0.4em] bg-midnight/10 backdrop-blur-sm cursor-pointer"
+                    >
+                        RSVP / Support Contacts
                     </a>
                     <button 
                         onClick={() => setSelectedImage("/assets/featured_events/ai_music_gen_am_center/poster.jpeg")}
@@ -251,6 +258,30 @@ export default function AIMusicGenEventPage() {
                 </div>
             </section>
 
+            {/* REGISTRATION FORM SECTION */}
+            <section id="register" className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 border-t border-white/5 scroll-mt-24">
+                <div className="text-center space-y-4 mb-12">
+                    <p className="text-accent uppercase tracking-[0.5em] text-[10px]">Registration Portal</p>
+                    <h2 className="text-3xl md:text-5xl font-serif italic gold-text">Event Registration</h2>
+                    <p className="text-xs uppercase tracking-[0.2em] text-foreground/50 max-w-lg mx-auto">
+                        Fill out the official Google Form below to register for the Panel Discussion at the American Center.
+                    </p>
+                    <div className="h-[1px] w-16 bg-accent/30 mx-auto mt-4" />
+                </div>
+
+                <div className="max-w-4xl mx-auto bg-midnight/30 border border-white/10 backdrop-blur-xl rounded-sm p-4 md:p-8 shadow-2xl relative">
+                    <div className="w-full relative overflow-hidden rounded-sm bg-midnight/60 border border-white/5 h-[800px] md:h-[900px]">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSc-SSiSKHPM8Bhrlat2Q2QQS0RpOM7ncHS6GX9aVPM6ycyTYw/viewform?embedded=true"
+                            className="absolute inset-0 w-full h-full border-0"
+                            title="AI-Generated Music Registration Form"
+                        >
+                            Loading…
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
             {/* RSVP SECTION */}
             <section id="rsvp" className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 border-t border-white/5 scroll-mt-24">
                 <div className="text-center space-y-4 mb-12">
@@ -262,22 +293,24 @@ export default function AIMusicGenEventPage() {
                     <div className="h-[1px] w-16 bg-accent/30 mx-auto mt-4" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    {/* Call Card */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Secretary LinkedIn Card */}
                     <div className="p-8 bg-midnight/30 border border-white/10 backdrop-blur-xl rounded-sm flex flex-col justify-between items-center text-center space-y-6 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]">
                         <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
-                            <Phone className="w-5 h-5 text-accent" />
+                            <Linkedin className="w-5 h-5 text-accent" />
                         </div>
                         <div className="space-y-2">
-                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Phone Contact</h3>
-                            <p className="text-lg font-medium tracking-wider text-foreground">+91 6283 615 553</p>
-                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Diplomacia Secretary</p>
+                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Diplomacia Secretary</h3>
+                            <p className="text-base font-semibold tracking-wide text-foreground">Ansh</p>
+                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Connect on LinkedIn</p>
                         </div>
                         <a 
-                            href="tel:+916283615553"
+                            href="https://www.linkedin.com/in/ansh-662013298"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
                         >
-                            Call Now
+                            View Profile
                         </a>
                     </div>
 
@@ -296,6 +329,25 @@ export default function AIMusicGenEventPage() {
                             className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
                         >
                             Send Email
+                        </a>
+                    </div>
+
+                    {/* Event Head Card */}
+                    <div className="p-8 bg-midnight/30 border border-accent/10 backdrop-blur-xl rounded-sm flex flex-col justify-between items-center text-center space-y-6 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+                        <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
+                            <Phone className="w-5 h-5 text-accent" />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Event Head</h3>
+                            <p className="text-base font-semibold tracking-wide text-foreground">Lovish Grover</p>
+                            <p className="text-lg font-medium tracking-wider text-foreground">+91 79881 07535</p>
+                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Event Head — AI & Music Program</p>
+                        </div>
+                        <a 
+                            href="tel:+917988107535"
+                            className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
+                        >
+                            Call Now
                         </a>
                     </div>
                 </div>
