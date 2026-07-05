@@ -477,13 +477,15 @@ export default function AIPPMEventPage() {
                         </a>
 
                         <a 
-                            href="tel:+916283615553" 
+                            href="https://www.linkedin.com/in/ansh-662013298"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="p-6 bg-midnight/20 border border-white/5 hover:border-accent/20 transition-all rounded-sm flex items-start gap-4"
                         >
-                            <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                            <Linkedin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                             <div>
                                 <p className="text-[9px] uppercase tracking-widest opacity-40">Secretary</p>
-                                <p className="text-xs font-semibold text-foreground/80 mt-1">+91 6283615553</p>
+                                <p className="text-xs font-semibold text-foreground/80 mt-1">Ansh — LinkedIn</p>
                             </div>
                         </a>
 

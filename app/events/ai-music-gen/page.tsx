@@ -17,7 +17,8 @@ import {
     FileCheck2,
     Lock,
     Phone,
-    Mail
+    Mail,
+    Linkedin
 } from "lucide-react";
 
 export default function AIMusicGenEventPage() {
@@ -292,22 +293,24 @@ export default function AIMusicGenEventPage() {
                     <div className="h-[1px] w-16 bg-accent/30 mx-auto mt-4" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    {/* Call Card */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Secretary LinkedIn Card */}
                     <div className="p-8 bg-midnight/30 border border-white/10 backdrop-blur-xl rounded-sm flex flex-col justify-between items-center text-center space-y-6 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]">
                         <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
-                            <Phone className="w-5 h-5 text-accent" />
+                            <Linkedin className="w-5 h-5 text-accent" />
                         </div>
                         <div className="space-y-2">
-                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Phone Contact</h3>
-                            <p className="text-lg font-medium tracking-wider text-foreground">+91 6283 615 553</p>
-                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Diplomacia Secretary</p>
+                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Diplomacia Secretary</h3>
+                            <p className="text-base font-semibold tracking-wide text-foreground">Ansh</p>
+                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Connect on LinkedIn</p>
                         </div>
                         <a 
-                            href="tel:+916283615553"
+                            href="https://www.linkedin.com/in/ansh-662013298"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
                         >
-                            Call Now
+                            View Profile
                         </a>
                     </div>
 
@@ -326,6 +329,25 @@ export default function AIMusicGenEventPage() {
                             className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
                         >
                             Send Email
+                        </a>
+                    </div>
+
+                    {/* Event Head Card */}
+                    <div className="p-8 bg-midnight/30 border border-accent/10 backdrop-blur-xl rounded-sm flex flex-col justify-between items-center text-center space-y-6 hover:border-accent/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+                        <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
+                            <Phone className="w-5 h-5 text-accent" />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Event Head</h3>
+                            <p className="text-base font-semibold tracking-wide text-foreground">Lovish Grover</p>
+                            <p className="text-lg font-medium tracking-wider text-foreground">+91 79881 07535</p>
+                            <p className="text-[10px] uppercase tracking-widest text-foreground/40 font-light">Event Head — AI & Music Program</p>
+                        </div>
+                        <a 
+                            href="tel:+917988107535"
+                            className="px-6 py-2.5 border border-accent/30 hover:border-accent text-accent hover:bg-accent hover:text-black transition-all duration-500 text-[9px] uppercase tracking-[0.2em] font-semibold"
+                        >
+                            Call Now
                         </a>
                     </div>
                 </div>
