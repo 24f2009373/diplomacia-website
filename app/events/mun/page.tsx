@@ -12,6 +12,7 @@ import {
     Phone, 
     Instagram, 
     Linkedin, 
+    Facebook,
     FileText, 
     ChevronLeft, 
     ChevronRight, 
@@ -29,6 +30,12 @@ import {
     Laptop,
     MessageSquare
 } from "lucide-react";
+
+const getSocialIcon = (url: string) => {
+    if (url.includes("linkedin.com")) return <Linkedin className="w-3.5 h-3.5" />;
+    if (url.includes("facebook.com")) return <Facebook className="w-3.5 h-3.5" />;
+    return <ExternalLink className="w-3.5 h-3.5" />;
+};
 
 // Google Form URL placeholder
 const GOOGLE_FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdcLBUW-DQzWAF7om472dRJBDFKBZTfy6cU2FFw70Ynqb9k6g/viewform?embedded=true";
@@ -95,10 +102,10 @@ export default function MUNEventPage() {
             title: "Formal Session",
             description: "The primary platform for speeches and official discussions. Delegates address the entire committee, regulated by the Chair. Discussions remain on record, and national positions are formally stated."
         },
-        {
-            title: "Moderated Caucus",
-            description: "Focused discussions allowing focused debate on particular subtopics (e.g., root causes of the issue, international cooperation, regional implications, policy solutions) with speaking times ranging from 45 to 90 seconds."
-        },
+        // {
+        //     title: "Moderated Caucus",
+        //     description: "Focused discussions allowing focused debate on particular subtopics (e.g., root causes of the issue, international cooperation, regional implications, policy solutions) with speaking times ranging from 45 to 90 seconds."
+        // },
         {
             title: "Informal Consultation",
             description: "Delegates engage in negotiations outside the formal speakers' list to facilitate bloc formation, alliance building, exchange of ideas, and development of common solutions."
@@ -497,12 +504,11 @@ export default function MUNEventPage() {
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
-                                { name: "Paridhi Bhambhani", role: "Chairperson" },
-                                { name: "Vismaya", role: "Chairperson" },
-                                { name: "Kashish Kapdi", role: "Chairperson" },
-                                { name: "Kartikdutt Sharma", role: "Vice Chairperson" },
-                                { name: "Om prajapati", role: "Vice Chairperson" },
-                                { name: "Shriya Manek", role: "Vice Chairperson" }
+                                { name: "Sudhanshu Kumar", role: "Executive Board Member" },
+                                { name: "Sudhanshu Tiwari", role: "Executive Board Member" },
+                                { name: "Abhav Nair", role: "Executive Board Member" },
+                                { name: "Amit Basak", role: "Executive Board Member" },
+                                { name: "Jay Vardhan", role: "Executive Board Member" }
                             ].map((member, idx) => (
                                 <div key={idx} className="p-5 bg-midnight/20 border border-white/5 rounded-sm hover:border-accent/20 transition-all duration-500">
                                     <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">{member.name}</h4>
@@ -522,22 +528,72 @@ export default function MUNEventPage() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
-                                { name: "Arnav Vibhu", role: "Director General", desc: "Event Coordinator", email: "24f3004904@ds.study.iitm.ac.in", phone: "7284943930" },
-                                { name: "Ayush Shukla", role: "Secretary General", desc: "Deputy Coordinator", email: "23f2001294@ds.study.iitm.ac.in", phone: "8602907277" },
-                                { name: "Anushree Prasannan", role: "OC Head", desc: "Event Volunteer", email: "23f1002816@ds.study.iitm.ac.in", phone: "+91 90612 97719" },
-                                { name: "Foram Mandali", role: "USG", desc: "Event Volunteer", email: "25f2007763@ds.study.iitm.ac.in", phone: "+91 94271 60301" }
+                                { 
+                                    name: "Ayush Shukla", 
+                                    role: "Secretary General", 
+                                    desc: "Secretariat Head", 
+                                    email: "23f2001294@ds.study.iitm.ac.in", 
+                                    phone: "8602907277",
+                                    social: "https://www.linkedin.com/in/ayushshukla0204"
+                                },
+                                { 
+                                    name: "Arnav Vibhu", 
+                                    role: "Director General", 
+                                    desc: "Academic Head", 
+                                    email: "24f3004904@ds.study.iitm.ac.in", 
+                                    phone: "7284943930",
+                                    social: "https://www.facebook.com/arnav.vibhu/"
+                                },
+                                { 
+                                    name: "Govind Agarwal", 
+                                    role: "USG Delegate Affairs", 
+                                    desc: "Delegate Relations", 
+                                    social: "https://www.linkedin.com/in/govind-agarwal-bb496532b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                },
+                                { 
+                                    name: "Srija Chawla", 
+                                    role: "USG Chief Advisor", 
+                                    desc: "Advisory Board", 
+                                    social: "https://www.linkedin.com/in/srija-chawla-08471b1a7"
+                                },
+                                { 
+                                    name: "Foram Mandali", 
+                                    role: "USG Operations", 
+                                    desc: "Operations Head", 
+                                    email: "25f2007763@ds.study.iitm.ac.in", 
+                                    phone: "+91 94271 60301",
+                                    social: "https://www.linkedin.com/in/forammandali/"
+                                }
                             ].map((member, idx) => (
-                                <div key={idx} className="p-5 bg-midnight/20 border border-white/5 rounded-sm hover:border-accent/20 transition-all duration-500 space-y-2">
-                                    <div>
-                                        <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">{member.name}</h4>
-                                        <p className="text-[10px] uppercase tracking-widest text-accent mt-0.5">{member.role}</p>
-                                        <p className="text-[9px] uppercase tracking-wider text-foreground/40">{member.desc}</p>
+                                <div key={idx} className="p-5 bg-midnight/20 border border-white/5 rounded-sm hover:border-accent/20 transition-all duration-500 space-y-2 flex flex-col justify-between">
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between items-start gap-2">
+                                            <div>
+                                                <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">{member.name}</h4>
+                                                <p className="text-[10px] uppercase tracking-widest text-accent mt-0.5">{member.role}</p>
+                                                {member.desc && <p className="text-[9px] uppercase tracking-wider text-foreground/40 mt-1">{member.desc}</p>}
+                                            </div>
+                                            {member.social && (
+                                                <a 
+                                                    href={member.social} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer" 
+                                                    className="text-foreground/40 hover:text-accent transition-all p-1 hover:scale-110 transform duration-300"
+                                                >
+                                                    {getSocialIcon(member.social)}
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className="h-[1px] w-full bg-white/5" />
-                                    <div className="space-y-1 text-[11px] font-light text-foreground/60">
-                                        <p className="truncate" title={member.email}>{member.email}</p>
-                                        <p>{member.phone}</p>
-                                    </div>
+                                    {(member.email || member.phone) && (
+                                        <div className="space-y-2 pt-2">
+                                            <div className="h-[1px] w-full bg-white/5" />
+                                            <div className="space-y-1 text-[11px] font-light text-foreground/60">
+                                                {member.email && <p className="truncate" title={member.email}>{member.email}</p>}
+                                                {member.phone && <p>{member.phone}</p>}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
