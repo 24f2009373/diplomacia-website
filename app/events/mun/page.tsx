@@ -126,7 +126,7 @@ export default function MUNEventPage() {
             desc: "Raised when a delegate believes the Rules of Procedure are not being followed."
         },
         {
-            name: "Point of Parliamentary Inquiry",
+            name: "Point of Inquiry",
             desc: "Used to seek clarification from the Executive Board regarding committee procedures."
         },
         {
@@ -253,6 +253,14 @@ export default function MUNEventPage() {
                         className="px-8 py-3 bg-accent text-black hover:bg-accent/80 transition-all duration-700 text-[10px] uppercase tracking-[0.4em] font-semibold shadow-lg hover:shadow-accent/20"
                     >
                         Register Now
+                    </a>
+                    <a 
+                        href="https://drive.google.com/drive/folders/1SwXAo6Y28Adtv91NuccB4nNczdGA44iO" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-8 py-3 border border-white/10 hover:border-accent hover:text-accent transition-all duration-700 text-[10px] uppercase tracking-[0.4em] bg-midnight/10 backdrop-blur-sm"
+                    >
+                        UN4MUN Resources
                     </a>
                     <a 
                         href="/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg" 
@@ -508,7 +516,8 @@ export default function MUNEventPage() {
                                 { name: "Sudhanshu Tiwari", role: "Executive Board Member" },
                                 { name: "Abhav Nair", role: "Executive Board Member" },
                                 { name: "Amit Basak", role: "Executive Board Member" },
-                                { name: "Jay Vardhan", role: "Executive Board Member" }
+                                { name: "Jay Vardhan", role: "Executive Board Member" },
+                                { name: "Ninaad Ghoshal", role: "Executive Board Member" }
                             ].map((member, idx) => (
                                 <div key={idx} className="p-5 bg-midnight/20 border border-white/5 rounded-sm hover:border-accent/20 transition-all duration-500">
                                     <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">{member.name}</h4>
@@ -545,15 +554,29 @@ export default function MUNEventPage() {
                                     social: "https://www.facebook.com/arnav.vibhu/"
                                 },
                                 { 
+                                    name: "Ansh", 
+                                    role: "Society Secretary", 
+                                    social: "https://www.linkedin.com/in/ansh-662013298?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                },
+                                {
+                                    name: "Mainak Dasgupta",
+                                    role: "Organizer",
+                                    social: "https://www.linkedin.com/in/mainak-dasgupta-b989a6241/"
+                                },
+                                { 
                                     name: "Govind Agarwal", 
                                     role: "USG Delegate Affairs", 
                                     desc: "Delegate Relations", 
+                                    email: "24f2008185@ds.study.iitm.ac.in", 
+                                    phone: "+91 70147 81535",
                                     social: "https://www.linkedin.com/in/govind-agarwal-bb496532b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                                 },
                                 { 
                                     name: "Srija Chawla", 
                                     role: "USG Chief Advisor", 
                                     desc: "Advisory Board", 
+                                    email: "21f2001388@ds.study.iitm.ac.in", 
+                                    phone: "+91 96546 58860",
                                     social: "https://www.linkedin.com/in/srija-chawla-08471b1a7"
                                 },
                                 { 
