@@ -69,6 +69,10 @@ export const featuredEvents: FeaturedEvent[] = [
                 primary: true,
             },
             {
+                label: "UN4MUN Resources",
+                href: "https://drive.google.com/drive/folders/1SwXAo6Y28Adtv91NuccB4nNczdGA44iO",
+            },
+            {
                 label: "Explore Event",
                 href: "/events/mun",
             }
