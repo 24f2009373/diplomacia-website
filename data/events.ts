@@ -26,7 +26,7 @@ export const featuredEvents: FeaturedEvent[] = [
     {
         slug: "aippm",
         title: "AIPPM 2026",
-        subtitle: "Dialogue. Debate. Democracy.",
+        subtitle: "Power. Policy. Politics.",
         description: "The All India Political Parties Meet (AIPPM) simulates India's political landscape, with delegates debating national issues, negotiating policies, and formulating recommendations based on their assigned party ideologies.",
         thumbnail: "/assets/featured_events/aippm/AIPPM 2026.png",
         sessions: [

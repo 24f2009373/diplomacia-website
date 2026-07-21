@@ -144,7 +144,7 @@ export default function AIPPMEventPage() {
                         All India Political Parties Meet
                     </p>
                     <p className="text-xs md:text-sm uppercase tracking-[0.5em] text-accent/80 font-medium">
-                        Dialogue • Debate • Democracy
+                        Power • Policy • Politics
                     </p>
 
                     <div className="h-[1px] w-24 bg-accent/30 mx-auto my-6" />
@@ -155,20 +155,37 @@ export default function AIPPMEventPage() {
                 </div>
 
                 {/* Quick Details Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl w-full mt-12 md:mt-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl w-full mt-12 md:mt-16">
                     <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
-                        <MapPin className="w-6 h-6 text-accent" />
+                        <Calendar className="w-6 h-6 text-accent" />
                         <div className="text-center">
-                            <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Location</p>
-                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">Delhi, India</p>
+                            <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Date</p>
+                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">26th July 2026</p>
+                        </div>
+                    </div>
+
+                    <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
+                        <Globe className="w-6 h-6 text-accent" />
+                        <div className="text-center">
+                            <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Mode</p>
+                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">Online</p>
                         </div>
                     </div>
 
                     <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
                         <Award className="w-6 h-6 text-accent" />
                         <div className="text-center">
+                            <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Prizepool</p>
+                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">₹15,000 INR</p>
+                            <p className="text-[10px] uppercase tracking-[0.15em] text-foreground/50 mt-0.5">16 Total Prizes</p>
+                        </div>
+                    </div>
+
+                    <div className="p-6 bg-midnight/20 border border-white/5 backdrop-blur-md rounded-sm flex flex-col items-center justify-center space-y-3 hover:border-accent/30 transition-all duration-500">
+                        <Shield className="w-6 h-6 text-accent" />
+                        <div className="text-center">
                             <p className="text-[9px] uppercase tracking-[0.2em] opacity-40">Organizer</p>
-                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">Diplomacia IIT Madras</p>
+                            <p className="text-xs md:text-sm uppercase tracking-[0.15em] font-medium mt-1">Diplomacia IITM</p>
                         </div>
                     </div>
                 </div>
