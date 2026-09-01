@@ -33,7 +33,21 @@ export const featuredEvents: FeaturedEvent[] = [
             {
                 title: "AIPPM 2026",
                 description: "Discussions on the Constitution (131st Amendment) Bill, 2026 with Special Emphasis on Women's Reservation and Delimitation.",
-                poster: "/assets/featured_events/aippm/AIPPM 2026.png"
+                poster: "/assets/featured_events/aippm/AIPPM 2026.png",
+                certificates: [
+                    "/assets/certs/aippm_certs/Ananya_Banerjee.pdf",
+                    "/assets/certs/aippm_certs/ANSH.pdf",
+                    "/assets/certs/aippm_certs/Ashwin_Devi_Srinivasan.pdf",
+                    "/assets/certs/aippm_certs/Atharva_Adsul.pdf",
+                    "/assets/certs/aippm_certs/AYANA_BAIDYA.pdf",
+                    "/assets/certs/aippm_certs/Jahanvi_Singh.pdf",
+                    "/assets/certs/aippm_certs/Ritesh_Kumar.pdf",
+                    "/assets/certs/aippm_certs/Sai_Nikhil_Vukka.pdf",
+                    "/assets/certs/aippm_certs/Shreya_Suman.pdf",
+                    "/assets/certs/aippm_certs/Sukh_Mandeep_Singh.pdf",
+                    "/assets/certs/aippm_certs/Suryana_Choudhary.pdf",
+                    "/assets/certs/aippm_certs/Vighnesh_Mishra.pdf",
+                ]
             }
         ],
         customCTAs: [
@@ -59,7 +73,21 @@ export const featuredEvents: FeaturedEvent[] = [
                 title: "Model United Nations",
                 date: "11th - 12th July 2026",
                 description: "An authentic simulation of United Nations proceedings that emphasizes diplomacy, consensus-building, and collaborative problem-solving.",
-                poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg"
+                poster: "/assets/featured_events/mun/Online Model United Nations 2026 Diplomacia Summit (1).jpg.jpeg",
+                certificates: [
+                    "/assets/certs/mun_session6_certs/Aarya.pdf",
+                    "/assets/certs/mun_session6_certs/A_S_DHANYA_SHRI.pdf",
+                    "/assets/certs/mun_session6_certs/Adrika_Ghosh.pdf",
+                    "/assets/certs/mun_session6_certs/Arpit_Juneja.pdf",
+                    "/assets/certs/mun_session6_certs/Aryan_Acharya.pdf",
+                    "/assets/certs/mun_session6_certs/Aryan_Chowdhary.pdf",
+                    "/assets/certs/mun_session7_certs/A_S_DHANYA_SHRI.pdf",
+                    "/assets/certs/mun_session7_certs/Adrika_Ghosh.pdf",
+                    "/assets/certs/mun_session7_certs/Ananya_Singh.pdf",
+                    "/assets/certs/mun_session7_certs/Arpit_Juneja.pdf",
+                    "/assets/certs/mun_session7_certs/Aryan_Chowdhary.pdf",
+                    "/assets/certs/mun_session7_certs/Brahmi_Paliwal.pdf",
+                ]
             }
         ],
         customCTAs: [
